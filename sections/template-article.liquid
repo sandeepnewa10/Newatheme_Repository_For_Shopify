@@ -69,10 +69,9 @@
               </div>
             {% endfor %}
 
-            <div class="max-w-6xl mx-auto">
-              {% render 'pagination'
-                , pagination: paginate %}
-            </div>
+            {% if paginate.pages > 1 %}
+              {{ paginate | default_pagination }}
+            {% endif %}
           {% endpaginate %}
         </div>
       {% else %}
@@ -166,7 +165,7 @@
         "description": {{ article.excerpt | strip_html | json }},
         {% endif %}
         {% if article.image %}
-          "image" : [{{ article.image | img_url: "large" | prepend: 'https:' | json }}],
+          "image" : [{{ article.image | img_url: "medium" | prepend: 'https:' | json }}],
           {% endif %}
           "datePublished": {{ article.published_at | date: format: "default" | json }},
           "dateCreated": {{ article.created_at | date: format: "default" | json }},
