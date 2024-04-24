@@ -13,17 +13,17 @@
           "type": "article_published_date"
         },
         "thumbnail": {
-          "type": "feature_image"
+          "type": "featured_image"
         },
         "content": {
           "type": "article_content"
         }
       },
       "block_order": [
-        "title",
-        "author",
-        "published_date",
         "thumbnail",
+        "title",
+        "published_date",
+        "author",
         "content"
       ]
     }
