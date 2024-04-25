@@ -17,8 +17,14 @@
 
                   <img
                     class="w-full h-full object-cover transition duration-1000 ease-in-out transform hover:scale-105"
-                    src="{{ collection_image | img_url: 'medium' }}"
-                    alt="{{ collection.title | escape }}">
+                    src="{{  collection_image | img_url: '300x' }}"
+                    srcset="{% render 'bgset', image:  collection_image %}"
+                    sizes="(min-width: 981px) 50vw, 100vw"
+                    width="300"
+                    height="{{ 300 | divided_by:  collection_image.aspect_ratio | round }}"
+                    alt="{{  collection_image.alt }}" />
+
+
                 </div>
               </a>
 
